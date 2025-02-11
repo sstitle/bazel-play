@@ -1,0 +1,22 @@
+# load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# http_archive(
+#     name = "spdlog",
+#     urls = ["https://github.com/gabime/spdlog/archive/refs/tags/v1.15.1.zip"],
+#     strip_prefix = "spdlog-1.15.1",
+# )
+
+load("@rules_foreign_cc//foreign_cc:cmake.bzl", "cmake_external")
+
+cmake_external(
+    name = "spdlog",
+    lib_source = "https://github.com/gabime/spdlog/archive/refs/tags/v1.15.1.tar.gz",
+    lib_name = "spdlog",
+    cmake_options = [
+        "-DSPDLOG_BUILD_EXAMPLES=OFF",
+        "-DSPDLOG_BUILD_TESTS=OFF",
+        "-DSPDLOG_FMT_EXTERNAL=OFF",
+    ],
+    install_prefix = "external/spdlog",
+    build_file = "@//third_party:spdlog.BUILD",
+)
