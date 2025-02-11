@@ -1,5 +1,8 @@
 cc_binary(
     name = "main",
     srcs = ["main.cpp"],
-    deps = ["@spdlog//:spdlog"],
+    deps = [
+        "@spdlog//:spdlog",
+        # "@cgal//:cgal",
+    ],
 )

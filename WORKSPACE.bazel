@@ -1,11 +1,3 @@
-# load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-# http_archive(
-#     name = "spdlog",
-#     urls = ["https://github.com/gabime/spdlog/archive/refs/tags/v1.15.1.zip"],
-#     strip_prefix = "spdlog-1.15.1",
-# )
-
 load("@rules_foreign_cc//foreign_cc:cmake.bzl", "cmake_external")
 
 cmake_external(
@@ -19,4 +11,12 @@ cmake_external(
     ],
     install_prefix = "external/spdlog",
     build_file = "@//third_party:spdlog.BUILD",
+)
+
+cmake_external(
+    name = "cgal",
+    lib_source = "https://github.com/CGAL/cgal/archive/refs/tags/v6.0.1.tar.gz",
+    lib_name = "cgal",
+    install_prefix = "external/cgal",
+    build_file = "@//third_party:cgal.BUILD",
 )
