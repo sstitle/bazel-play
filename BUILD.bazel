@@ -1,3 +1,11 @@
+load("@rules_foreign_cc//foreign_cc:cmake.bzl", "cmake") 
+
+cmake(
+    name = "cgal",
+    lib_source = "@cgal//:all_srcs",
+)
+
+
 cc_binary(
     name = "main",
     srcs = ["main.cpp"],

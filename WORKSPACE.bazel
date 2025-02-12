@@ -1,0 +1,15 @@
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+_ALL_CONTENT = """\
+filegroup(
+    name = "all_srcs",
+    srcs = glob(["**"]),
+    visibility = ["//visibility:public"],
+)
+"""
+
+http_archive(
+    name = "cgal",
+    build_file_content = _ALL_CONTENT,
+    urls = ["https://github.com/CGAL/cgal/archive/refs/tags/v6.0.1.tar.gz"],
+)
