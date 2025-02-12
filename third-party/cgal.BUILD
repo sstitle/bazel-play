@@ -1,8 +1,23 @@
-cc_library(
-    name = "cgal-lib",
-    hdrs = glob(["**/*.h"]),
-    includes = glob(["**/include/**"]),
+load("@rules_foreign_cc//foreign_cc:defs.bzl", "cmake")
+
+filegroup(
+    name = "all_srcs",
+    srcs = glob(["**"]),
     visibility = ["//visibility:public"],
-    alwayslink = True,
-    copts = ["-ICartesian_kernel/include"],
 )
+
+cmake(
+    name = "cgal-lib",
+    lib_source = ":all_srcs",
+    out_headers_only = True,
+    visibility = ["//visibility:public"],
+)
+
+
+# cc_library(
+#     name = "cgal-lib",
+#     hdrs = glob(["**/*.h"]),
+#     includes = glob(["**/include/**"]),
+#     visibility = ["//visibility:public"],
+#     alwayslink = True,
+# )
