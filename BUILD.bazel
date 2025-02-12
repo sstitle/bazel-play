@@ -3,7 +3,7 @@ cc_binary(
     srcs = ["main.cpp"],
     deps = [
         "@spdlog//:spdlog",
-        "@cgal//:cgal",
+        "@cgal//:cgal-lib",
     ],
-    includes = ["@cgal//:cgal"],
+    includes = ["@cgal//:cgal-lib"],
 )
