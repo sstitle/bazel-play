@@ -6,4 +6,5 @@ cc_binary(
         "@cgal//:cgal-lib",
     ],
     includes = ["@cgal//:cgal-lib"],
+    copts = ["-std=c++20"],
 )
